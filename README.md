@@ -1,5 +1,38 @@
 # React + Vite
 
+## Iqama-APP
+
+## developed by MOhamed Fayed
+
+## -------------------------------------------------------------------------------------------------------------------------------
+
+### the library will be used in our app
+
+#### install the react main files
+```bash
+npm create Vite@latest app-name
+```
+
+#### install the MUI library
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+#### install the MUI Icon package
+```bash
+npm install @mui/icons-material
+```
+<!-- 
+#### install the Toast library
+```bash
+npm install react-hot-toast
+``` -->
+
+#### install the tailwind library
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
