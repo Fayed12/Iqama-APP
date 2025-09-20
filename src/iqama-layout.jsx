@@ -24,7 +24,7 @@ function reducer(state, action) {
 }
 
 function MainLayout() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("cairo");
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function MainLayout() {
       try {
         dispatch({ type: "loading" });
         const res = await fetch(
-          `https://api.aladhan.com/v1/timingsByCity/20-09-2025?city=cairo&country=Egypt&method=5&timezonestring=Africa/Cairo`
+          `https://api.aladhan.com/v1/timingsByCity/20-09-2025?city=${city}&country=Egypt&method=5&timezonestring=Africa/Cairo`
         );
         if (!res.ok) {
           throw new Error("something error in fetching data!!");

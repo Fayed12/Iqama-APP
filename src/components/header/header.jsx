@@ -4,7 +4,7 @@ import "./header.css"
 function Header({ city, setCity }) {
     return (
       <>
-        <div className="iqama-header w-full h-[80px] px-[15px]! py-[10px]! flex justify-between items-center">
+        <div className="iqama-header-one w-full px-[15px]! py-[10px]! flex justify-between items-center ">
           <div className="logo">
             <img src="/logo.png" alt="iqama logo" />
           </div>

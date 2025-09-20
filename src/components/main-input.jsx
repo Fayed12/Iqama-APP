@@ -1,11 +1,11 @@
-function Input({ country, setCountry, placeholder }) {
+function Input({ city, setCity, placeholder }) {
   return (
     <>
       <input
         type="text"
         placeholder={placeholder}
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
       />
     </>
   );

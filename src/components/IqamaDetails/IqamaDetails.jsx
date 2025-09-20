@@ -1,29 +1,46 @@
+import "./IqamaDetails.css";
+import DataDetails from "../aladhan-details/dataDetails";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 function IqamaDetails({ state, city }) {
+  const date = new Date();
+  let day = date.getDate();
+
   const resData = state?.daysData?.data;
 
   if (state?.status === "loading") {
-    return <div className="text-[white]">Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (!resData) {
-    return <div className="text-[white]">No data yet...</div>;
+    return <div className="no-data">No data yet...</div>;
   }
 
   return (
-    <div className="all-details flex justify-center items-center w-full text-[white]">
-      <div className="container w-full">
-        <div className="all-details">
-          <div className="hijri-month">{resData.date.hijri.month.ar}</div>
-          <div className="gregorian-data">{resData.date.gregorian.date}</div>
-          <div className="city-name">{city}</div>
-          <div className="day-name">{resData.date.hijri.weekday.ar}</div>
+    <div className="all-details">
+      <div className="container">
+        <div className="iqama-header">
+          <h2>{resData.date.hijri.month.ar}</h2>
+          <p>{resData.date.gregorian.date}</p>
+          <p className="city">{city}</p>
+          <p>{resData.date.hijri.weekday.ar}</p>
         </div>
         <div className="day-time">
-          <div className="day">today</div>
-          <div className="scroll-days">s d</div>
+          <button>
+            <ChevronLeftIcon />
+          </button>
+          <div className="day">{day}</div>
+          <button>
+            <ChevronRightIcon />
+          </button>
         </div>
-        <div className="details">now</div>
-        <div className="nots"></div>
+        <div className="details">
+          <DataDetails timeDetails={resData.timings} />
+        </div>
+        <div className="notes">
+          <span>All times are based on Africa/Cairo timezone</span>
+        </div>
       </div>
     </div>
   );
