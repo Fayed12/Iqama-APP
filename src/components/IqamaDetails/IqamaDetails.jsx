@@ -3,12 +3,8 @@ import DataDetails from "../aladhan-details/dataDetails";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-function IqamaDetails({ state, city }) {
-  const date = new Date();
-  let day = date.getDate();
-
+function IqamaDetails({ state, city, date, handleDecDate, handleIncDate }) {
   const resData = state?.daysData?.data;
-
   if (!resData) {
     return <div className="no-data">No data yet...</div>;
   }
@@ -23,12 +19,12 @@ function IqamaDetails({ state, city }) {
           <p>{resData.date.hijri.weekday.ar}</p>
         </div>
         <div className="day-time">
-          <button>
-            <ChevronLeftIcon />
+          <button title="decrement">
+            <ChevronLeftIcon onClick={() => handleDecDate()} />
           </button>
-          <div className="day">{day}</div>
-          <button>
-            <ChevronRightIcon />
+          <div className="day">{date}</div>
+          <button title="increment">
+            <ChevronRightIcon onClick={() => handleIncDate()} />
           </button>
         </div>
         {state?.status === "loading" ? (

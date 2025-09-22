@@ -1,28 +1,27 @@
 import "./dataDetails.css";
 
 function DataDetails({ timeDetails }) {
+  const { Fajr, Dhuhr, Asr, Maghrib, Isha } = timeDetails;
+  const prayers = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+
+  let dateArray = [Fajr, Dhuhr, Asr, Maghrib, Isha];
+
+  // handle prayer time
+  const prayerData = dateArray.map((time) => {
+    if (Number(time.split(":")[0]) > 12) {
+      return `${Number(time.split(":")[0]) - 12}:${time.split(":")[1]}`;
+    } else {
+      return time;
+    }
+  });
   return (
     <div className="data-details">
-      <div className="time-item">
-        <span className="label">Fajr</span>
-        <span className="value">{timeDetails.Fajr}</span>
-      </div>
-      <div className="time-item">
-        <span className="label">Dhuhr</span>
-        <span className="value">{timeDetails.Dhuhr}</span>
-      </div>
-      <div className="time-item">
-        <span className="label">Asr</span>
-        <span className="value">{timeDetails.Asr}</span>
-      </div>
-      <div className="time-item">
-        <span className="label">Maghrib</span>
-        <span className="value">{timeDetails.Maghrib}</span>
-      </div>
-      <div className="time-item">
-        <span className="label">Isha</span>
-        <span className="value">{timeDetails.Isha}</span>
-      </div>
+      {prayerData.map((item, i) => (
+        <div className="time-item" key={prayers[i]}>
+          <span className="label">{prayers[i]}</span>
+          <span className="value">{item}</span>
+        </div>
+      ))}
     </div>
   );
 }
