@@ -33,3 +33,32 @@
   font-weight: 600;
   color: var(--seconde-text-color);
 }
+
+@media (max-width: 700px) {
+
+  .time-item {
+    padding: 10px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .time-item {
+    padding: 8px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+}

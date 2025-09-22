@@ -4,22 +4,39 @@
   align-items: center;
   height: calc(100dvh - 80px);
   width: 100%;
+  padding: 10px;
 }
 
 .container {
-    position: relative;
   width: 60%;
+  max-width: 900px;
   height: fit-content;
   background: white;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 30px;
-  padding-bottom: 60px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .container {
+    width: 90%;
+    padding: 16px;
+    max-height: 80vh; 
+  }
 }
 
 .iqama-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .iqama-header h2 {
@@ -40,18 +57,31 @@
   color: var(--main-text-color);
 }
 
+/* Responsive font sizes */
+@media (max-width: 700px) {
+  .iqama-header h2 {
+    font-size: 20px;
+  }
+  .iqama-header p {
+    font-size: 13px;
+  }
+  .iqama-header .city {
+    font-size: 15px;
+  }
+}
+
 .day-time {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .day-time button {
   background: transparent;
   border: none;
-  padding: 8px;
+  padding: 6px;
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
@@ -68,30 +98,64 @@
   color: var(--main-text-color);
 }
 
+@media (max-width: 700px) {
+  .day-time .day {
+    font-size: 16px;
+  }
+}
+
 .details {
   background: var(--main-background-color);
   border-radius: 12px;
-  padding: 16px;
+  padding: 14px;
   border: 1px solid var(--seconde-text-color);
+  transition: max-height 0.3s ease-in-out;
+}
+
+@media (max-width: 700px) {
+  .details {
+    max-height: 250px;
+    overflow: auto;
+    font-size: 14px;
+  }
+
+  .details::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .details::-webkit-scrollbar-thumb {
+    background-color: var(--seconde-text-color);
+    border-radius: 10px;
+  }
+
+  .details::-webkit-scrollbar-track {
+    background-color: white;
+  }
 }
 
 .notes {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  font-size: 14px;
-  color: var(--seconde-text-color);
+  font-size: 13px;
+  color: white;
   font-style: italic;
+}
+
+@media (max-width: 400px) {
+  .notes {
+    font-size: 11px;
+  }
 }
 
 .loading,
 .no-data {
   text-align: center;
-  padding: 24px;
-  font-size: 18px;
+  padding: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--main-text-color);
 }

@@ -85,7 +85,6 @@ function MainLayout() {
   }, [city, state.day, state.month, state.year]);
   return (
     <>
-      <header>
         <Header city={city} setCity={setCity} />
         <IqamaDetails
           state={state}
@@ -94,7 +93,6 @@ function MainLayout() {
           handleDecDate={handleDecDate}
           handleIncDate={handleIncDate}
         />
-      </header>
     </>
   );
 }
