@@ -9,10 +9,6 @@ function IqamaDetails({ state, city }) {
 
   const resData = state?.daysData?.data;
 
-  if (state?.status === "loading") {
-    return <div className="loading">Loading...</div>;
-  }
-
   if (!resData) {
     return <div className="no-data">No data yet...</div>;
   }
@@ -35,9 +31,15 @@ function IqamaDetails({ state, city }) {
             <ChevronRightIcon />
           </button>
         </div>
-        <div className="details">
-          <DataDetails timeDetails={resData.timings} />
-        </div>
+        {state?.status === "loading" ? (
+          <div className="flex items-center justify-center">
+            <span className="text-[20px] font-bold">Loading......</span>
+          </div>
+        ) : (
+          <div className="details">
+            <DataDetails timeDetails={resData.timings} />
+          </div>
+        )}
         <div className="notes">
           <span>All times are based on Africa/Cairo timezone</span>
         </div>

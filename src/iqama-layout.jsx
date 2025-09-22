@@ -28,25 +28,26 @@ function MainLayout() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchData() {
       try {
         dispatch({ type: "loading" });
         const res = await fetch(
-          `https://api.aladhan.com/v1/timingsByCity/20-09-2025?city=${city}&country=Egypt&method=5&timezonestring=Africa/Cairo`
+          `https://api.aladhan.com/v1/timingsByCity/20-09-2025?city=${city}&country=Egypt&method=5&timezonestring=Africa/Cairo` , {signal:controller.signal}
         );
         if (!res.ok) {
           throw new Error("something error in fetching data!!");
         }
-        const data =await res.json();
+        const data = await res.json();
         dispatch({ type: "catchDataSuccess", payload: data });
       } catch (err) {
           dispatch({ type: "error", payload: err.message });
-      } finally {
-        dispatch({ type: "ready" });
       }
     }
     fetchData();
-  }, []);
+
+    return ()=>controller.abort()
+  }, [city]);
   return (
     <>
       <header>

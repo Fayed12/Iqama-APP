@@ -5,7 +5,7 @@ function Input({ city, setCity, placeholder }) {
         type="text"
         placeholder={placeholder}
         value={city}
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e) => setCity((e.target.value).trim().toLowerCase())}
       />
     </>
   );

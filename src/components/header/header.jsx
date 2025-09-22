@@ -12,7 +12,7 @@ function Header({ city, setCity }) {
             <Input
               city={city}
               setCity={setCity}
-              placeholder="search city..."
+              placeholder="search Egypt city..."
             />
           </div>
         </div>
